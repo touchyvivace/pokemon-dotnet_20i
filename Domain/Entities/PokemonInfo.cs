@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Pokemon.Domain.Entities;
 public class PokemonInfo : BaseAuditableEntity
 {
-    [Key]
-    public int Id { get; set; }
+
 
     [Required(ErrorMessage = "Name field is required PokemonName!")]
     public string PokemonName { get; set; }
