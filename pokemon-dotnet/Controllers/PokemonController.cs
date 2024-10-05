@@ -26,27 +26,48 @@ namespace Pokemon.Controllers
 
             return Ok(result);
         }
-        [HttpPut]
-        [Route("{pokemonId}")]
-        public async Task<IActionResult> UpdatePokemon()
+        [HttpPut("{pokemonId}")]
+        public async Task<IActionResult> UpdatePokemon(int pokemonId, [FromBody] UpdatePokemonCommand updatePokemonCommand)
         {
+            updatePokemonCommand.PokemonId = pokemonId;
 
-            return Ok();
+            var result = await Mediator.Send(updatePokemonCommand);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
 
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<PokemonInfo>> CreatePokemon()
+        public async Task<ActionResult<PokemonInfo>> CreatePokemon([FromBody] AddPokemonCommand addPokemonCommand)
         {
-            return Ok();
+            var result = await Mediator.Send(addPokemonCommand);
+
+            if (result == null)
+            {
+                return BadRequest("A Pokemon with the same name already exists.");
+            }
+
+            return CreatedAtAction(nameof(GetPokemonById), new { pokemonId = result.Id }, result);
         }
 
-        [HttpDelete]
-        [Route("{pokemonId}")]
-        public async Task<IActionResult> DeletePokemon()
+        [HttpDelete("{pokemonId}")]
+        public async Task<IActionResult> DeletePokemon(int pokemonId)
         {
+            var command = new DeletePokemonCommand { PokemonId = pokemonId };
+            var success = await Mediator.Send(command);
 
-            return Ok();
+            if (!success)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
+
     }
 }

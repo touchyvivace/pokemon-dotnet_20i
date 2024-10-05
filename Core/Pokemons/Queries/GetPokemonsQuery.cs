@@ -28,7 +28,13 @@ namespace Core.Pokemons.Queries
 
         public async Task<IEnumerable<PokemonInfo>> Handle(GetPokemonsQuery request, CancellationToken cancellationToken)
         {
-            IQueryable<PokemonInfo> query = _context.Pokemons.Where(p => p.PokemonType == request.PokemonType);
+
+
+            IQueryable<PokemonInfo> query = _context.Pokemons;
+            if (!String.IsNullOrEmpty(request.PokemonType))
+            {
+                query = query.Where(p => p.PokemonType == request.PokemonType);
+            }
 
             if (request.Sort)
             {
