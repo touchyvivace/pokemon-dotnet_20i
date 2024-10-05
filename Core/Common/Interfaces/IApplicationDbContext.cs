@@ -7,5 +7,6 @@ namespace Pokemon.Core.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
+         DbSet<PokemonInfo> Pokemon {get;}
    
 }
