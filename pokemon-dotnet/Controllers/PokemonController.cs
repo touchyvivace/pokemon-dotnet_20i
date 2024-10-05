@@ -1,3 +1,4 @@
+using Core.Pokemons.Queries;
 using Microsoft.AspNetCore.Mvc;
 using Pokemon.Domain.Entities;
 
@@ -6,10 +7,9 @@ namespace Pokemon.Controllers {
 
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> GetAllPokemons()
+        public async Task<IEnumerable<PokemonInfo>> GetAllPokemons([FromQuery] GetPokemonsQuery pokemonsQuery) 
         {
-
-            return Ok("");
+            return await Mediator.Send(pokemonsQuery);
         }
 
         [HttpGet]
