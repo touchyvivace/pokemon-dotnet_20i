@@ -1,7 +1,7 @@
 ﻿
 using Pokemon.Core.Common.Interfaces;
 
-namespace BizViewV6Api.Infrastructure.Services;
+namespace Pokemon.Infra.Services;
 
 public class DateTimeService : IDateTime
 {
