@@ -74,13 +74,15 @@ namespace Infra.Persistence
             {
                 if (!_context.Set<T>().Any())
                 {
+
                     var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                     {
-                        HasHeaderRecord = true,
+                    HasHeaderRecord = true,
                     };
 
                     using var reader = new StreamReader(filePath);
                     using var csv = new CsvReader(reader, config);
+                    csv.Context.RegisterClassMap<PokemonRecordMap>();
                     var records = csv.GetRecords<T>().ToList();
                     if (records.Any())
                     {
@@ -102,7 +104,7 @@ namespace Infra.Persistence
             }
             catch (Exception ex)
             {
-            Console.WriteLine($"Exception Seed: {ex.Message}");
+                Console.WriteLine($"Exception Seed: {ex.Message}");
 
             }
         }
