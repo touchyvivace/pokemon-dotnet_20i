@@ -43,7 +43,11 @@ namespace Infra.Persistence
             optionsBuilder.AddInterceptors(_auditableEntitySaveChangesInterceptor);
         }
 
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
 
+        return await base.SaveChangesAsync(cancellationToken);
+    }
 
     }
 }
