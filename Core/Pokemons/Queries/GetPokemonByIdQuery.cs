@@ -26,7 +26,7 @@ namespace Core.Pokemons.Queries
 
         public async Task<PokemonInfo> Handle(GetPokemonByIdQuery request, CancellationToken cancellationToken)
         {
-            var result = await _context.Pokemon.Where(p => p.Id == request.Id).FirstOrDefaultAsync();
+            var result = await _context.Pokemons.Where(p => p.Id == request.Id).FirstOrDefaultAsync();
             return result;
         }
     }

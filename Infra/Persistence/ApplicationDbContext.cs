@@ -29,7 +29,7 @@ namespace Infra.Persistence
         }
     public IDbConnection Connection => Database.GetDbConnection();
 
-        public DbSet<PokemonInfo> Pokemon => Set<PokemonInfo>();
+        public DbSet<PokemonInfo> Pokemons => Set<PokemonInfo>();
 
         public new DatabaseFacade Database => base.Database;
         protected override void OnModelCreating(ModelBuilder builder)
