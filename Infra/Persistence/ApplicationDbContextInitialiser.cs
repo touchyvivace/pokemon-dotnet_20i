@@ -33,7 +33,9 @@ namespace Infra.Persistence
         {
             try
             {
-                if (_context.Database.IsSqlServer())
+                // if (_context.Database.IsSqlServer())
+                if (_context.Database.IsNpgsql())
+                
                 {
                     await _context.Database.MigrateAsync();
                 }
@@ -77,12 +79,12 @@ namespace Infra.Persistence
 
                     var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                     {
-                    HasHeaderRecord = true,
+                        HasHeaderRecord = true,
                     };
 
                     using var reader = new StreamReader(filePath);
                     using var csv = new CsvReader(reader, config);
-                    csv.Context.RegisterClassMap<PokemonRecordMap>();
+                    RegisterCsvClassMap(csv);
                     var records = csv.GetRecords<T>().ToList();
                     if (records.Any())
                     {
@@ -107,6 +109,11 @@ namespace Infra.Persistence
                 Console.WriteLine($"Exception Seed: {ex.Message}");
 
             }
+        }
+
+        private static void RegisterCsvClassMap(CsvReader csv)
+        {
+            csv.Context.RegisterClassMap<PokemonRecordMap>();
         }
     }
 }

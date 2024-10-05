@@ -16,6 +16,9 @@ namespace Infra.Persistence
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
+        static ApplicationDbContext() {
+     AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+}
         private readonly IMediator _mediator;
         private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
         public ApplicationDbContext(
