@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace Infra.Persistence
             _mediator = mediator;
             _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
         }
+    public IDbConnection Connection => Database.GetDbConnection();
 
         public DbSet<PokemonInfo> Pokemon => Set<PokemonInfo>();
 
