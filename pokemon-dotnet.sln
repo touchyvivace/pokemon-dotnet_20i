@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pokemon-dotnet", "pokemon-dotnet\pokemon-dotnet.csproj", "{D7EEF7FB-E36B-4DFA-9194-11648A352B5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{2C6BE55A-3A26-4FBD-A5B3-7E9B0E489F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{A3FC3728-700B-422E-B650-D0AB1436CE38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{DF92615E-3CBF-4342-8DC3-7A76A2AF9763}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7EEF7FB-E36B-4DFA-9194-11648A352B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7EEF7FB-E36B-4DFA-9194-11648A352B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7EEF7FB-E36B-4DFA-9194-11648A352B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7EEF7FB-E36B-4DFA-9194-11648A352B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6BE55A-3A26-4FBD-A5B3-7E9B0E489F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6BE55A-3A26-4FBD-A5B3-7E9B0E489F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6BE55A-3A26-4FBD-A5B3-7E9B0E489F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6BE55A-3A26-4FBD-A5B3-7E9B0E489F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FC3728-700B-422E-B650-D0AB1436CE38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FC3728-700B-422E-B650-D0AB1436CE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FC3728-700B-422E-B650-D0AB1436CE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FC3728-700B-422E-B650-D0AB1436CE38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF92615E-3CBF-4342-8DC3-7A76A2AF9763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF92615E-3CBF-4342-8DC3-7A76A2AF9763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF92615E-3CBF-4342-8DC3-7A76A2AF9763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF92615E-3CBF-4342-8DC3-7A76A2AF9763}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
