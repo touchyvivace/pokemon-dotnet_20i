@@ -17,6 +17,5 @@ public class PokemonInfo : BaseAuditableEntity
     public int Speed { get; set; }
 
     public bool Shiny { get; set; }
-    public DateTime? CreatedDate { get; set; }
-    public DateTime? UpdatedDate { get; set; }
+
 }
